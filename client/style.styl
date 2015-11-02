@@ -43,6 +43,23 @@ body
   color #fff
   font-weight 500
   margin-bottom 8px
+  
+.clearfix
+  clear both
+
+.more
+  display none
+  width 100%
+  text-align center
+  margin-top 15px
+  font-size 12px
+  > div 
+    > div
+      line-height initial
+    div + div
+      color rgba(#000,.5)
+  &.active
+    display inline-block
 
 @media screen and (min-width: 768px)
   .blk
@@ -104,13 +121,17 @@ footer
   a
     color gray
     text-decoration none
-  
+    
+[class*='col-xs-']
+  float left
+
+.col-xs-4
+  width 33.33%
 .col-xs-6
   width 50%
-  float left
 
 .float-rgt
   float right
-
+  
 .hide
   display none
