@@ -1,99 +1,106 @@
 @import 'nib'
 
-body {
-  font-family: Avenir, Arial;
-  width: 100%;
-  font-size: 16px;
-}
-* {
-  box-sizing: border-box;
-}
+body
+  font-family Avenir, Arial
+  width 100%
+  font-size: 16px
 
-.search{
-  border-bottom: 1px solid #ccc;
-}
+*
+  box-sizing border-box
 
-.inpUrl{
-  width: 100%;
-  padding: 20px;
-  border: 0;
-  font-size: 16px;
-  text-align: center;
-  transition: background .3s ease;
-}
-.inpUrl:focus{
-  outline: none;
-  background: #eee;
-  text-align: left;
-}
+.search
+  border-bottom: 1px solid #ccc
 
-.container {
-  width: 100%;
-  max-width: 768px;
-  margin: 0 auto;
-  padding: 20px 15px 45px 15px;
-}
-.blk {
-  display: inline-block;
-  width: 100%;
-  line-height: 24px;
-  background: #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  color: #fff;
-  font-weight: 500;
-  margin-bottom: 8px;
-}
-@media screen and (min-width: 768px){
-  .blk{
-    width: 48%;
-    float: left;
-  }
-  .blk:nth-child(odd){
-    margin-right: 4%;
-  }
-}
+.inpUrl
+  width 100%
+  padding 20px
+  border 0
+  font-size 16px
+  text-align center
+  transition background .3s ease
+  &:focus
+    outline none
+    background #eee
+    text-align left
+    &:valid
+      background lighten(green,94%)
+    &:invalid
+      background lighten(red,94%)
 
-.icon {
-  height: 24px;
-  width: 24px;
-  float: left;
-  vertical-align: middle;
-  margin-right: 10px;
-}
-.icon path{
-  fill: #fff;
-}
-.name {
-  float: left;
-}
-.count {
-  float: right;
-}
-.facebook    {background: #39579a;}
-.google      {background: #DE4D3B;}
-.twitter     {background: #50ABF1;}
-.reddit      {background: #FF4300;}
-.buffer      {background: #323B43;}
-.stumbleupon {background: #EE4813;}
-.vkontakte   {background: #44658F;}
-.pinterest   {background: #BF0012;}
-.linkedin    {background: #0076B7;}
-.pocket      {background: #F23D52;}
-.xing        {background: #005A60;}
-.weibo       {background: #E90E24;}
-.delicious   {background: #2A96FF;}
+.container
+  width 100%
+  max-width 768px
+  margin 0 auto
+  padding 20px 15px 45px 15px
+  
+.blk
+  display inline-block
+  width 100%
+  line-height 24px
+  background #ccc
+  border-radius 5px
+  padding 10px
+  color #fff
+  font-weight 500
+  margin-bottom 8px
 
-footer{
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding: 15px;
-  background: #000;
-  color: white;
-  text-align: center;
-}
+@media screen and (min-width: 768px)
+  .blk
+    width 48%
+    float left
+    &:nth-child(odd)
+      margin-right 4%
 
-.hide{
-  display: none;
-}
+.icon
+  height 24px
+  width 24px
+  float left
+  vertical-align middle
+  margin-right 10px
+  path
+    fill #fff
+
+.name
+  float left
+
+.count
+  float right
+
+.facebook
+  background #39579a
+.google
+  background #DE4D3B
+.twitter
+  background #50ABF1
+.reddit
+  background #FF4300
+.buffer
+  background #323B43
+.stumbleupon
+  background #EE4813
+.vkontakte
+  background #44658F
+.pinterest
+  background #BF0012
+.linkedin
+  background #0076B7
+.pocket
+  background #F23D52
+.xing
+  background #005A60
+.weibo
+  background #E90E24
+.delicious
+  background #2A96FF
+
+footer
+  position fixed
+  bottom 0
+  width 100%
+  padding 15px
+  background #000
+  color white
+  text-align center
+
+.hide
+  display none
