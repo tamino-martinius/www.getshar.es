@@ -10,6 +10,7 @@
   <script type="text/javascript" src="http://cdn.getshar.es/lib/0.8.0.js"></script>
 </head>
 <body>
+  <input type="checkbox" id="imprint">
   <div class="search">
     <form>
       <input type="url" class="inpUrl" placeholder="Track your URL">
@@ -149,8 +150,13 @@
         Total:&nbsp;<span class="total-count">0</span>&nbsp;Shares
       </div>
       <div class="col-xs-6">
-        <a href="/imprint" class="float-rgt">Imprint</a>
+        <label class="float-rgt" for="imprint">
+          Imprint
+        </label>
       </div>
     </div>
   </footer>
+  <div class="imprint">
+    {{> imprint}}
+  </div>
 </body>
