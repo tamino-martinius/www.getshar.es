@@ -1,4 +1,4 @@
-@getCountHtml = (count) ->
+getCountHtml = (count) ->
   count = count.toFixed 0 if count.toFixed?
   index = count.length
   while index > 3
@@ -38,22 +38,23 @@ addTotal = (count) ->
   total += count
   setCount $('.total-count'), total
 
-setCount = ($elem, count) ->
-  if $elem.length is 1
-    $elem.addClass 'active'
-    $elem.html(getCountHtml(count))
+setCount = ($elems, count) ->
+  if $elems.length is 1
+    $elems.addClass 'active'
+    $elems.html(getCountHtml(count))
   else
-    setCount($elem.eq(i), count) for i in [1.. $elem.length]
+    setCount($(elem), count) for elem in $elems
 
 Template.body.events
   'click .blk': (e) ->
     $(e.currentTarget).find('.more').toggleClass 'active'
-  'submit form': (evt) ->
+  'submit form': (e) ->
+    e.preventDefault()
+
     total = 0
     setCount($('.count, .total-count'), 0)
     $('.more, .count, .total-count').removeClass 'active'
 
-    evt.preventDefault()
     window.VK.Share.count = (a, count) ->
       addTotal count
       setCount $('.blk.vk .count'), count
@@ -64,9 +65,9 @@ Template.body.events
           setCount $(".blk.#{@network} .count"), @counter.count
         if @network is 'facebook'
           $counts = $('.blk.facebook .more .count')
-          setCount $counts.eq(0) elem[0].comment_count
-          setCount $counts.eq(1) elem[0].like_count
-          setCount $counts.eq(2) elem[0].share_count
+          setCount $counts.eq(0), elem[0].comment_count
+          setCount $counts.eq(1), elem[0].like_count
+          setCount $counts.eq(2), elem[0].share_count
         if @network is 'reddit'
           score = ups = downs = 0
           for listing in elem.data.children
@@ -74,7 +75,7 @@ Template.body.events
             downs += listing.data.downs
             score += listing.data.score
           $counts = $('.blk.reddit .more .count')
-          setCount $counts.eq(0) ups
-          setCount $counts.eq(1) downs
-          setCount $counts.eq(2) score
-
+          setCount $counts.eq(0), ups
+          setCount $counts.eq(1), downs
+          setCount $counts.eq(2), score
+    false
