@@ -1,3 +1,54 @@
+##############
+# Extensions #
+##############
+
+# String
+
+String::startsWith = (m) -> @match("^#{m}")?
+String::endsWith   = (m) -> @match("#{m}$")?
+String::contains   = (m) -> @match("#{m}")?
+String::data       = -> if @toString() is '' then null else @toString()
+String::capitalize = -> if @length > 0 then @[0].toUpperCase() + @slice(1) else ""
+String::trim       = (c = '\\s') -> @replace(new RegExp("^[#{c}]+|[#{c}]+$", 'g'), '')
+String::rtrim      = (c = '\\s') -> @replace(new RegExp(         "[#{c}]+$", 'g'), '')
+String::ltrim      = (c = '\\s') -> @replace(new RegExp("^[#{c}]+"         , 'g'), '')
+String::dasherize  = (c = '_')-> @replace(new RegExp('[A-Z]', 'g'), (m) -> "[#{c}]#{m.toLowerCase()}").trim(c)
+String::classify   = -> @replace(new RegExp('_[a-z]', 'g'), (m) -> m.toUpperCase().trim('_')).capitalize()
+String::tsplit     = (c = '\\s') -> @trim(c).split(new RegExp("[#{c}]", 'g'))
+String::toHash     = (groupSep = '?&', sep = '=') ->
+  _.reduce @tsplit(groupSep), (obj, q) ->
+    [key, value] = q.split(sep)
+    obj[key] = value if key?
+    obj
+  , {}
+
+
+# Number
+
+functionNames = ["ceil", "floor", "round"]
+
+for functionName in functionNames
+  do (functionName) ->
+    Number::[functionName] = (precision = 0) ->
+      factor = Math.pow(10, precision)
+      Math[functionName](@ * factor) / factor
+
+
+# Array
+
+functionNames = ["sample"]
+
+for functionName in functionNames
+  do (functionName) ->
+    Array::[functionName] = (args...) ->
+      args.unshift(@)
+      _[functionName].apply(_, args)
+
+
+#########
+# Views #
+#########
+
 getCountHtml = (count) ->
   count = count.toFixed 0 if count.toFixed?
   index = count.length
@@ -13,11 +64,11 @@ networkNames = [
   'linkedin'
   # 'delicious'
   'reddit'
-  # 'googleplus'
+  'googleplus'
   'flattr'
   'stumbleupon'
   'buffer'
-  # 'vk'
+  'vk'
   'pocket'
   # 'weibo'
   'xing'
@@ -55,9 +106,9 @@ Template.body.events
     setCount($('.count, .total-count'), 0)
     $('.more, .count, .total-count').removeClass 'active'
 
-    # window.VK.Share.count = (a, count) ->
-    #   addTotal count
-    #   setCount $('.blk.vk .count'), count
+    window.VK.Share.count = (a, count) ->
+      addTotal count
+      setCount $('.blk.vk .count'), count
     for name in networkNames
       networks[name].setUrl $('input[type=url]').val(), (elem) ->
         addTotal @counter.count
