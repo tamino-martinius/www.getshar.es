@@ -13,11 +13,11 @@ networkNames = [
   'linkedin'
   # 'delicious'
   'reddit'
-  'googleplus'
+  # 'googleplus'
   'flattr'
   'stumbleupon'
   'buffer'
-  'vk'
+  # 'vk'
   'pocket'
   # 'weibo'
   'xing'
@@ -55,9 +55,9 @@ Template.body.events
     setCount($('.count, .total-count'), 0)
     $('.more, .count, .total-count').removeClass 'active'
 
-    window.VK.Share.count = (a, count) ->
-      addTotal count
-      setCount $('.blk.vk .count'), count
+    # window.VK.Share.count = (a, count) ->
+    #   addTotal count
+    #   setCount $('.blk.vk .count'), count
     for name in networkNames
       networks[name].setUrl $('input[type=url]').val(), (elem) ->
         addTotal @counter.count

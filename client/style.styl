@@ -137,6 +137,9 @@ footer
   width 33.33%
 .col-xs-6
   width 50%
+  @media screen and (max-width: 480px)
+    width 100%
+    margin-bottom 15px
 
 .float-rgt
   float right
@@ -167,11 +170,19 @@ footer
   p
     text-align justify
     margin-bottom 20px
-    
+
+h2
 h4
   margin-bottom 5px
   font-weight bold
   color #222
+h2
+  font-size 18px
+  
+.about
+  display inline-block
+  width 100%
+  margin-bottom 15px
   
 #imprint:checked ~ .imprint
   top 0
