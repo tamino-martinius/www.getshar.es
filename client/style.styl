@@ -8,27 +8,39 @@ body
 *
   box-sizing border-box
 
+header
+  border-bottom 1px solid #eee
+  padding 15px
+  
+.search
+  width 100%
+  max-width 480px
+  margin 0 auto
+  position relative
+
 .inpUrl
   width 100%
-  padding 15px
+  padding 8px 12px
   border 0
+  border-radius 5px
   font-size 16px
-  text-align center
-  border-bottom 1px solid #eee
+  text-align left
+  background #F2F2F2
   transition background .3s ease
   &:focus
     outline none
-    background #eee
-    &:valid
-      background lighten(green,94%)
-    &:invalid
-      background lighten(red,94%)
+    background darken(#F2F2F2,3%)
+
+.lblSearch
+  position absolute
+  top 10px
+  right 12px
 
 .container
   width 100%
   max-width 768px
   margin 0 auto
-  padding 20px 15px 45px 15px
+  padding 15px 15px 45px 15px
 
 .blk
   display inline-block
@@ -150,16 +162,20 @@ footer
 .txt-cntr
   text-align center
 
+#imprint:checked ~ .imprint
+  transform translateY(0px)
+
 .imprint
   position fixed
   overflow-Y scroll
   width 100%
   height 100%
   background white
-  top 100%
+  top 0
   left 0
   color gray
-  transition top .3s ease
+  transform translateY(100%)
+  transition transform .3s ease
   line-height 1.3em
   font-size 12px
   a
@@ -183,9 +199,6 @@ h2
   display inline-block
   width 100%
   margin-bottom 15px
-
-#imprint:checked ~ .imprint
-  top 0
 
 .close
   position absolute

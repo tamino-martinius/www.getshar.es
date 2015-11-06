@@ -19,12 +19,20 @@
 </head>
 <body>
   <input type="checkbox" id="imprint" class="hide">
-  <div class="search">
-    <form action="">
-      <input type="url" class="inpUrl" placeholder="Track your URL">
-      <input type="submit" value="" class="hide">
-    </form>
-  </div>
+  <header>
+    <div class="search">
+      <form action="">
+        <input type="url" class="inpUrl" id="inpSearch" placeholder="Track your URL">
+        <label for="inpSearch" class="lblSearch">
+          <svg width="13px" height="13px" viewBox="0 0 13 13">
+            <circle fill="none" stroke="#979797" stroke-width="2" cx="6" cy="6" r="5"></circle>
+            <path d="M10,10 L12,12" stroke="#979797" stroke-width="2" stroke-linecap="round"></path>
+          </svg>
+        </label>
+        <input type="submit" value="" class="hide">
+      </form>
+    </div>
+  </header>
   <div class="container">
     <div class="blk facebook has-more">
       <svg viewBox="0 0 48 48" class="icon">
