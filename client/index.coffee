@@ -97,6 +97,9 @@ setCount = ($elems, count) ->
     setCount($(elem), count) for elem in $elems
 
 Template.body.events
+  'change input[type=url]': (e) ->
+    url = $('input[type=url]').val()
+    $('input[type=url]').val("http://#{url}") if not url.contains('://')
   'click .blk': (e) ->
     $(e.currentTarget).find('.more').toggleClass 'active'
   'submit form': (e) ->
