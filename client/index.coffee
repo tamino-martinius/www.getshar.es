@@ -99,7 +99,7 @@ setCount = ($elems, count) ->
 Template.body.events
   'change input[type=url]': (e) ->
     url = $('input[type=url]').val()
-    $('input[type=url]').val("http://#{url}") if not url.contains('://')
+    $('input[type=url]').val("http://#{url}") if not url.contains('://') and url.length > 0
   'click .blk': (e) ->
     $(e.currentTarget).find('.more').toggleClass 'active'
   'submit form': (e) ->
