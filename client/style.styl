@@ -169,18 +169,18 @@ footer
   text-align center
 
 #imprint:checked ~ .imprint
-  transform translateY(0px)
+  transform translateX(0px)
 
 .imprint
   position fixed
-  overflow-Y scroll
-  width 100%
-  height 100%
+  overflow scroll
   background white
   top 0
   left 0
+  right 0
+  bottom 0
   color gray
-  transform translateY(100%)
+  transform translateX(100%)
   transition transform .3s ease
   line-height 1.3em
   font-size 12px
