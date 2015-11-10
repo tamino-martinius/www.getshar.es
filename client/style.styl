@@ -13,7 +13,7 @@ header
   padding 15px
   @media screen and (max-width: 480px)
     padding 10px 15px
-  
+
 .search
   width 100%
   max-width 480px
@@ -175,7 +175,8 @@ header
 .imprint
   position fixed
   z-index 9999
-  overflow auto
+  overflow-y scroll /* has to be scroll, not auto */
+  -webkit-overflow-scrolling touch
   top 0
   left 0
   width 100%
