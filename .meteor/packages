@@ -4,9 +4,7 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-autopublish
-insecure
 stylus
 coffeescript
-jquery
-standard-minifiers
+meteorhacks:picker
+ecmascript
