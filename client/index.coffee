@@ -62,7 +62,6 @@ networkNames = [
   'facebook'
   'pinterest'
   'linkedin'
-  # 'delicious'
   'reddit'
   'googleplus'
   'flattr'
@@ -70,7 +69,6 @@ networkNames = [
   'buffer'
   'vk'
   'pocket'
-  # 'weibo'
   'xing'
 ]
 networks = {}
@@ -113,6 +111,8 @@ Template.body.events
       addTotal count
       setCount $('.blk.vk .count'), count
     for name in networkNames
+      if name is 'twitter'
+        $('.twitter .count').html('<a href="https://blog.twitter.com/2015/hard-decisions-for-a-sustainable-platform" target="blank">💩</a>').addClass('active')
       networks[name].setUrl $('input[type=url]').val(), (elem) ->
         addTotal @counter.count
         if @network isnt 'vk'
