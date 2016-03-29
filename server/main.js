@@ -43,9 +43,9 @@ const getCounts = function(network, callbackName, val1, val2) {
     }
     const response = HTTP.get(settings.url);
     if (settings.regexp) {
-      return `${callback}(${JSON.stringify(settings.regexp.exec(res.content)[1])});`;
+      return `${callback}(${JSON.stringify(settings.regexp.exec(response.content)[1])});`;
     } else {
-      return `${callback}(${res.content});`;
+      return `${callback}(${response.content});`;
     }
   } catch(error) {
     return `${callback}(0);`;
